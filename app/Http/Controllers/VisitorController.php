@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class VisitorController extends Controller
+{
+    public function index ()
+    {
+        // query from table 'visitors' using model Visitor 
+
+        // $visitors <- create 1 variable
+        $visitors = \App\Models\Visitor::all();
+
+        // return to views - resources/views/visitors/index.blade.php
+        return view  ('visitors.index', compact('visitors'));
+    }
+
+    public function create ()
+    
+    {
+        //return to views - resources/views/visitors/create.blade.php
+        return view('visitors.create');
+    }
+
+    public function store (Request $request)
+    {
+        //store data to table 'visitors' using model Visitor Method 
+        $visitor = new \App\Models\Visitor();
+        $visitor->name = $request->name;
+        $visitor->phone = $request->phone;
+        $visitor->email = $request->email;
+        $visitor->save();
+
+        //redirect to visitor.index
+        return redirect()->route ('visitors.index');
+    }
+
+    public function show (\App\Models\Visitor $visitor)
+    {
+        //retun to views - resources/views/visitors/show.blade.php
+        return view ('visitors.show', compact('visitor'));
+    }
+}
