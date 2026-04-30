@@ -35,6 +35,14 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('visitors.create') }}">Create Visitor</a>
+                            <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="visitorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Visitor
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="visitorDropdown">
+                                <li><a class="dropdown-item" href="{{ route('visitors.index') }}">Visitor List</a></li>
+                                <li><a class="dropdown-item" href="{{ route('visitors.create') }}">Create Visitor</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blogs.index') }}">Blogs</a>
