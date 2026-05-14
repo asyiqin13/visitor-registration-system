@@ -33,6 +33,10 @@ class VisitorController extends Controller
         $visitor->email = $request->email;
         $visitor->save();
 
+        //untuk keluarkan notification
+        auth()->user()->notify(new \App\Notifications\VisitorCreatedNotification);
+
+
         //redirect to visitors.index
         return redirect()->route ('visitors.index');
     }
@@ -63,6 +67,9 @@ class VisitorController extends Controller
 
     public function delete (\App\Models\Visitor $visitor)
     {
+         
+        //untuk keluarkan notification deleted visitor
+        auth()->user()->notify(new \App\Notifications\VisitorDeletedNotification);
         
         $visitor->delete (); 
      
