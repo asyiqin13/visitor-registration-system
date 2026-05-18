@@ -55,6 +55,7 @@
                                 <th>Phone</th>
                                 <th>Email</th>
                                 <th>Created At</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -65,7 +66,16 @@
                                     <td>{{ $deletedVisitor->email }}</td>
                                     <!--diffForHumans() : use to display specific hour -->
                                     <td>{{ $deletedVisitor->created_at->diffForHumans() }}</td>
-                    
+                                    <td>
+                                        <a href="{{ route('visitors.restore', $deletedVisitor) }}" 
+                                        class="btn btn-success">
+                                        Restore
+                                        </a>
+                                  
+                                        <a onclick="return confirm ('Are you sure you want to force delete this visitor?')"
+                                        href="{{ route('visitors.force-delete', $deletedVisitor) }}" 
+                                        class="btn btn-dark">Force Delete </a>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
