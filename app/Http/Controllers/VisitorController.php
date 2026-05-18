@@ -12,9 +12,10 @@ class VisitorController extends Controller
 
         // $visitors <- create 1 variable
         $visitors = \App\Models\Visitor::all();
+        $deletedVisitors = \App\Models\Visitor::onlyTrashed()->get();
 
         // return to views - resources/views/visitors/index.blade.php
-        return view  ('visitors.index', compact('visitors'));
+        return view  ('visitors.index', compact('visitors','deletedVisitors'));
     }
 
     public function create ()

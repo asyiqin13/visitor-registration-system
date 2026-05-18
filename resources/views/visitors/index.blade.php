@@ -43,6 +43,36 @@
                 </div>
 
             </div>
+
+            <div class="card">
+                <div class="card-header">{{ __('Soft Delete Visitor Index') }}</div>
+
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Created At</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($deletedVisitors as $deletedVisitor)
+                                <tr>
+                                    <td>{{ $deletedVisitor->name }}</td>
+                                    <td>{{ $deletedVisitor->phone }}</td>
+                                    <td>{{ $deletedVisitor->email }}</td>
+                                    <!--diffForHumans() : use to display specific hour -->
+                                    <td>{{ $deletedVisitor->created_at->diffForHumans() }}</td>
+                    
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
