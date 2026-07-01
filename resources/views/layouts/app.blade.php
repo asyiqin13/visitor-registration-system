@@ -30,13 +30,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        @can('index visitors')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('visitors.index') }}">Visitors</a>
                         </li>
+                        @endcan
+                        @can ('create visitors')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('visitors.create') }}">Create Visitor</a>
                         </li>
-                        <li class="nav-item dropdown">
+                        @endcan
+                        <!-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="visitorDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Visitor
                             </a>
@@ -44,19 +48,27 @@
                                 <li><a class="dropdown-item" href="{{ route('visitors.index') }}">Visitor List</a></li>
                                 <li><a class="dropdown-item" href="{{ route('visitors.create') }}">Create Visitor</a></li>
                             </ul>
-                        </li>
+                        </li> -->
+                        <!-- @can('index blogs') -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blogs.index') }}">Blogs</a>
                         </li>
+                        <!-- @endcan -->
+                        <!-- @can('create blogs') -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blogs.create') }}">Create Blog</a>
                         </li>
+                        <!-- @endcan -->
+                        @can('index users')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.index') }}">Users</a>
                         </li>
+                        @endcan
+                        @can('create users')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('users.create') }}">Create User</a>
                         </li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->
